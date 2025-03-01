@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>登录</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFE4E1; /* 粉红色背景 */
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background: url('https://img.freepik.com/free-vector/cute-cat-pattern-background_1374-32.jpg');
+            padding: 20px;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .login-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #FF69B4;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #FFB6C1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            -webkit-appearance: none; /* 移除iOS默认样式 */
+        }
+        button {
+            background-color: #FF69B4;
+            color: white;
+            padding: 12px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 15px;
+            -webkit-appearance: none; /* 移除iOS默认样式 */
+        }
+        button:hover {
+            background-color: #FF1493;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+            font-size: 14px;
+        }
+        /* 移动端适配 */
+        @media (max-width: 480px) {
+            .login-form {
+                padding: 20px 15px;
+                width: 85%;
+            }
+            input, button {
+                font-size: 16px; /* 防止iOS缩放 */
+                padding: 10px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>欢迎来到amanda和jojo的世界</h2>
+            <input type="text" id="username" placeholder="账号" value="828" readonly>
+            <input type="password" id="password" placeholder="密码">
+            <button ontouchstart="login()" onclick="login()">登录</button>
+            <p id="error" class="error">密码错误</p>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const password = document.getElementById('password').value;
+            if (password === 'amanda') {
+                window.location.href = 'memory.html';
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        // 防止双击缩放
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        // 防止双指缩放
+        document.addEventListener('gesturestart', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

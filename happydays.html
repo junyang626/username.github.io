@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Days</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #FFE4E1;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        /* 泡泡背景 */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 182, 193, 0.3);
+            animation: float 20s infinite;
+            z-index: -1;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-100px) translateX(100px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+        .header {
+            background-color: rgba(255, 105, 180, 0.9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        .date-text {
+            font-size: 1.5em;
+            color: #FF69B4;
+            margin: 20px 0;
+        }
+        .result {
+            font-size: 2.5em;
+            margin: 30px 0;
+            color: #333;
+            font-weight: bold;
+        }
+        button {
+            background-color: #FF69B4;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #FF1493;
+            transform: scale(1.05);
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button class="back-button" onclick="location.href='memory.html'">返回</button>
+        <h1>Happy Days</h1>
+    </div>
+    <div class="container">
+        <p class="date-text">起始日期：2015-08-28</p>
+        <div class="result" id="result"></div>
+        <button onclick="calculateDays()">刷新天数</button>
+    </div>
+
+    <script>
+        // 创建泡泡背景
+        function createBubbles() {
+            const bubbleCount = 20;
+            for(let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = Math.random() * 100 + 50;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.top = `${Math.random() * 100}%`;
+                bubble.style.animationDelay = `${Math.random() * 20}s`;
+                document.body.appendChild(bubble);
+            }
+        }
+
+        function calculateDays() {
+            const startDate = new Date('2015-08-28');
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('result').innerHTML = 
+                `已经过去了<br>${diffDays}天`;
+        }
+
+        // 页面加载时创建泡泡和计算天数
+        window.onload = function() {
+            createBubbles();
+            calculateDays();
+        };
+    </script>
+</body>
+</html>

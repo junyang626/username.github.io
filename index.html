@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #FFE4E1;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .result {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #333;
+        }
+        button {
+            background-color: #FF69B4;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #FF1493;
+        }
+        .header {
+            background-color: #FF69B4;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Memory</h1>
+    </div>
+    <div class="container">
+        <p>起始日期：2015-08-28</p>
+        <div class="result" id="result"></div>
+        <button onclick="calculateDays()">刷新天数</button>
+    </div>
+
+    <script>
+        function calculateDays() {
+            const startDate = new Date('2015-08-28');
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('result').innerHTML = 
+                `已经过去了<br>${diffDays}天`;
+        }
+
+        // 页面加载时自动计算
+        calculateDays();
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #FFE4E1;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #FF69B4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .modules-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 20px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .module-card {
+            background: url('https://img.freepik.com/free-vector/cute-cat-pattern-background_1374-32.jpg');
+            width: 300px;
+            height: 200px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .module-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .module-title {
+            font-size: 2em;
+            color: #FF69B4;
+            margin-bottom: 10px;
+        }
+        .module-description {
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Memory</h1>
+    </div>
+    <div class="modules-container">
+        <div class="module-card" onclick="location.href='happydays.html'">
+            <div class="module-content">
+                <div class="module-title">Happy Days</div>
+                <div class="module-description">记录美好时光</div>
+            </div>
+        </div>
+        <div class="module-card" onclick="location.href='photos.html'">
+            <div class="module-content">
+                <div class="module-title">掠影</div>
+                <div class="module-description">珍藏美好回忆</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
